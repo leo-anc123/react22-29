@@ -29,7 +29,17 @@ nav ul {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-grow: 1;
-  justify-content: space-between;
+  
 }
 
+nav ul li {
+  flex-grow: 1;
+}
+
+nav ul li a {
+ color: white;
+ text-decoration: none;
+ padding: 8px;
+ display: block;
+ text-align: center;
+}
