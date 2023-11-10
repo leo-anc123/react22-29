@@ -16,6 +16,8 @@ const EjemploProps2 = props => {
     )
 }
 const EjemploProps3 = ({titulo, subtitulo, cuerpo}) => {
+/* cuando se produzca el evento onChange en el input
+ejecuto la funcion anonima que llama a la funcion que enviamos en la props cambiar valor */
 
     return(
         <div>
@@ -26,9 +28,35 @@ const EjemploProps3 = ({titulo, subtitulo, cuerpo}) => {
        
     )
 }
+const EjemploProps4 = props => {
+
+    return(
+        
+    <label> ver en consola: <input type="text" onChange={(e) => props.cambiarValor(e.target.value)}></input> </label>
+    )
+}
+const EjemploProps5 = props => {
+
+    //defino la funcion que va a manejar el evento del click
+const handleClick = e => {
+    //valido que esten pasando la props que necesito
+    // si se da la condicion o la pasaron > va a "mostrar" cliqueame
+    // el control esta dentro de la funcion
+            if(props.eventoClick) {
+                props.eventoClick('me cliqueaste')
+            }
+        }
+
+    return(
+        
+        <p><button onClick={handleClick}>Cliqueame</button></p>
+    )
+}
 
 export {
     EjemploProps1,
     EjemploProps2,
-    EjemploProps3
+    EjemploProps3,
+    EjemploProps4,
+    EjemploProps5
 }
