@@ -8,6 +8,8 @@ const Nav = (props) => {
                 <li><Link to="/ejemplo01">Ejemplo 1</Link></li>
                 <li><Link to="/ejemplo02">Ejemplo 2</Link></li>
                 <li><Link to="/ejemplo03">Ejemplo 3</Link></li>
+                <li><Link to="/json">Json</Link></li>
+                <li><Link to="/api">API</Link></li>
             </ul>
         </nav>
     )
