@@ -10,7 +10,7 @@ const Api = (props) => {
     useEffect(() => {
         const cargarDatos = async () => {
             setCargando(true);
-            const res = (await fetch('https://rickandmortyapi.com/api/character')).json();
+            const res = await (await fetch('https://rickandmortyapi.com/api/character')).json();
             setPersonajes(res.results);
             setCargando(false)
         }
@@ -25,21 +25,23 @@ const Api = (props) => {
             {cargando ? <p> cargando datos...</p> : (
                 <div className="personajes">
 
-                    <div className="personaje">
-                        <h4>Nombre del personaje</h4>
+                 {personajes.map(personaje => (
+                    <div className="personaje" key={personaje.id}>
+                        <h4>{personaje.name}</h4>
                         <div className="ficha">
                             <div className="foto">
-                                <img src="https://fakeimg.pl/100x100" />
+                                <img src={personaje.image} alt={personaje.name} />
                             </div>
                             <div className="datos">
-                                <h6>Especie: humano o no</h6>
-                                <h6>Vivo: humano o no</h6>
+                                <h6>Especie: {personaje.species === 'Human' ? 'Humano' : personaje.species} </h6>
+                                <h6>Vivo: {personaje.status === 'Alive' ? 'Si' : personaje.status}</h6>
                             </div>
                         </div>
                     </div>
+                 ))};
 
                 </div>
-                )};
+            )}
             {/* Termina el operador ternario */}
             
         </>
